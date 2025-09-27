@@ -18,8 +18,7 @@ Each handler is a separate class annotated with `@Component` (or registered as a
 - **401 Unauthorized** → handled by a dedicated `AuthenticationEntryPoint` component  
 - **403 Forbidden** → handled by a dedicated `AccessDeniedHandler` component  
 - JSON responses include `status` and `timestamp` (easy to extend with `path`, `message`, `traceId`)  
-- Components are easy to unit test, mock and reuse across multiple projects  
-- Can be easily extended with extra fields (e.g., `path`, `traceId`)
+- Components are easy to unit test, mock and reuse across multiple projects 
 
 ---
 

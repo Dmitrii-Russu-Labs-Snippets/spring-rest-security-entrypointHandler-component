@@ -1,18 +1,27 @@
-# Spring Security JSON Errors
+# Spring REST Security EntryPoint Handler (Component)
 
-Custom AuthenticationEntryPoint and AccessDeniedHandler for Spring Security to return clean JSON error responses (401 Unauthorized, 403 Forbidden).
+Custom `AuthenticationEntryPoint` and `AccessDeniedHandler` implemented as separate `@Component` classes for Spring Security. Returns clean JSON error responses for **401 Unauthorized** and **403 Forbidden**.
+
+---
 
 ## Overview
 
-By default, Spring Security returns either an HTML error page or a plain text message when authentication or authorization fails.  
-This project demonstrates how to replace those defaults with clean **JSON error responses**, making your API more consistent and client-friendly.
+This repository demonstrates a production-friendly pattern: security error handlers implemented as dedicated Spring components.  
+Each handler is a separate class annotated with `@Component` (or registered as a bean by component scan) and injected into `SecurityConfig`. This improves **separation of concerns**, **testability**, and **reusability**.
+
+> Implementation difference vs other repos: handlers live in their own classes (`@Component`) rather than inlined as lambdas or provided by factory `@Bean` methods.
+
+---
 
 ## Features
 
-- `401 Unauthorized` → handled by a custom `AuthenticationEntryPoint`  
-- `403 Forbidden` → handled by a custom `AccessDeniedHandler`  
-- JSON responses include status and timestamp  
+- **401 Unauthorized** → handled by a dedicated `AuthenticationEntryPoint` component  
+- **403 Forbidden** → handled by a dedicated `AccessDeniedHandler` component  
+- JSON responses include `status` and `timestamp` (easy to extend with `path`, `message`, `traceId`)  
+- Components are easy to unit test, mock and reuse across multiple projects  
 - Can be easily extended with extra fields (e.g., `path`, `traceId`)
+
+---
 
 ## Example Error Response
 
@@ -23,14 +32,6 @@ This project demonstrates how to replace those defaults with clean **JSON error 
   "path": "/auth/admin"
 }
 ```
-
-## Tech Stack
-
-Java 25
-
-Spring Boot 3+
-
-Spring Security 6+
 
 ## How to Run
 ```

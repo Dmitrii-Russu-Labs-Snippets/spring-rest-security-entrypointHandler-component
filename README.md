@@ -9,7 +9,7 @@ Custom `AuthenticationEntryPoint` and `AccessDeniedHandler` implemented as separ
 This repository demonstrates a production-friendly pattern: security error handlers implemented as dedicated Spring components.  
 Each handler is a separate class annotated with `@Component` (or registered as a bean by component scan) and injected into `SecurityConfig`. This improves **separation of concerns**, **testability**, and **reusability**.
 
-> Implementation difference vs other repos: handlers live in their own classes (`@Component`) rather than inlined as lambdas or provided by factory `@Bean` methods.
+> Implementation difference vs other repos: handlers live in their own classes (`@Component`) rather than inlined as [lambdas](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-lambda) or provided by [factory @Bean methods](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-bean).
 
 ---
 

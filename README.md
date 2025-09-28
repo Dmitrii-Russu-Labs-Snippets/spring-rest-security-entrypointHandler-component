@@ -79,8 +79,8 @@ curl -i -u jack:123 http://localhost:8080/auth/admin
 
 ---
 
-Related
+## Related
 
-- spring-rest-security-entrypointHandler-bean — same handlers registered as beans via factory methods
+- [spring-rest-security-entrypointHandler-lambda](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-lambda) — compact implementation using lambdas in SecurityConfig  
+- [spring-rest-security-entrypointHandler-bean](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-bean) — same handlers registered as beans via factory methods
 
-- spring-rest-security-entrypointHandler-lambda — compact implementation using lambdas in SecurityConfig
